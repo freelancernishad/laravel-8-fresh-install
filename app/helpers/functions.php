@@ -17,3 +17,28 @@ function int_en_to_bn($number)
 
     return str_replace($en_digits, $bn_digits, $number);
 }
+
+
+
+function sent_response($message,$data=[]){
+    $response = [
+        'status'=>true,
+        'message'=>$message,
+        'data'=>$data,
+    ];
+    return response()->json([$response]);
+
+}
+
+function sent_error($message ,$messages=[],$code=404){
+    $response = [
+        'status'=>false,
+        'message'=>$message,
+        'code'=>$code
+    ];
+    !empty($messages) ? $response['errors'] = $messages : null;
+
+
+    return response()->json(['response'=>$response],$code);
+
+}
