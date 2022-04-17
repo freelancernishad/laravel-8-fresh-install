@@ -11,10 +11,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     /**
      * Show the application dashboard.
@@ -26,8 +26,8 @@ class HomeController extends Controller
 
     public function index()
     {
-        return QrCode::generate('Make me into a QrCode!');
-        return view('home');
+        //return QrCode::generate('Make me into a QrCode!');
+        return view('admin.index');
     }
 
 

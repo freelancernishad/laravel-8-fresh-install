@@ -11,6 +11,9 @@
 
 			</div>
 			<div class="card-body">
+                @if(session()->has('error'))
+               <font color="red">{{ session('error') }}</font>
+                @endif
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
 					<div class="input-group form-group">
