@@ -177,7 +177,6 @@ return [
         Meneses\LaravelMpdf\LaravelMpdfServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
 
-
     ],
 
     /*
@@ -235,6 +234,7 @@ return [
 
         'PDF' => Meneses\LaravelMpdf\Facades\LaravelMpdf::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+
     ],
 
 ];
