@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 class HomeController extends Controller
 {
     /**
@@ -21,8 +21,15 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
+    // php artisan make:export UsersExport --model=User
+
     public function index()
     {
+        return QrCode::generate('Make me into a QrCode!');
         return view('home');
     }
+
+
+
 }
