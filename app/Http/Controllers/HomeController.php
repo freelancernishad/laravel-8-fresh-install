@@ -33,7 +33,7 @@ class HomeController extends Controller
     public function index(Request $request)
     {
 
-        //return auth::user();
+       // return auth::user();
         //return QrCode::generate('Make me into a QrCode!');
         return view('admin.index');
 
@@ -54,7 +54,7 @@ class HomeController extends Controller
 
         // return $request->expectsJson();
 
-return auth::user()->role;
+//return auth::user()->role;
         //return QrCode::generate('Make me into a QrCode!');
         return view('admin.index');
 

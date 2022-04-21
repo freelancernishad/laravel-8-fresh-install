@@ -23,7 +23,8 @@ Auth::routes();
 
 Route::group(['middleware' => ['is_admin']], function() {
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+});
 
-
+Route::group(['middleware' => ['CustomerMiddleware']], function() {
 Route::get('/sub', [App\Http\Controllers\HomeController::class, 'sub'])->name('sub');
 });
