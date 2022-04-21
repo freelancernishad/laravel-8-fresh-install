@@ -8,7 +8,7 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 use App\Exports\UsersExport;
 use Maatwebsite\Excel\Facades\Excel;
-
+use Auth;
 
 class HomeController extends Controller
 {
@@ -30,9 +30,31 @@ class HomeController extends Controller
 
     // php artisan make:export UsersExport --model=User
 
-    public function index()
+    public function index(Request $request)
     {
 
+        //return auth::user();
+        //return QrCode::generate('Make me into a QrCode!');
+        return view('admin.index');
+
+
+
+
+
+           // return Excel::download(new UsersExport, 'users.xlsx');
+
+
+
+        return view('home');
+
+    }
+
+    public function sub(Request $request)
+    {
+
+        // return $request->expectsJson();
+
+return auth::user()->role;
         //return QrCode::generate('Make me into a QrCode!');
         return view('admin.index');
 

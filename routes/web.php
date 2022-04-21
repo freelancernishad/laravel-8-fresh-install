@@ -25,4 +25,5 @@ Route::group(['middleware' => ['is_admin']], function() {
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
+Route::get('/sub', [App\Http\Controllers\HomeController::class, 'sub'])->name('sub');
 });

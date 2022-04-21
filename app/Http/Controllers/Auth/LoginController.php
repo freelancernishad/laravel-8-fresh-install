@@ -46,14 +46,17 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
 
-        if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'])))
+        if(auth::attempt(array('email' => $input['email'], 'password' => $input['password'])))
         {
-
+            // return auth::user();
 
             if (auth()->user()->role == 'admin') {
                 return redirect()->route('home');
+            }
+            if (auth()->user()->role == 'sub') {
+                return redirect('sub');
             }else{
-                return redirect()->route('sub');
+                return redirect()->route('login');
             }
 
 

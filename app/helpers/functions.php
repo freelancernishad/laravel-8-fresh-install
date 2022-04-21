@@ -42,3 +42,28 @@ function sent_error($message ,$messages=[],$code=404){
     return response()->json(['response'=>$response],$code);
 
 }
+
+
+
+use Stichoza\GoogleTranslate\GoogleTranslate;
+
+function transition($text)
+{
+
+
+
+
+
+    if(session()->has('lan')){
+            $tr = new GoogleTranslate(session('lan')); // Translates into English
+    }else{
+        $tr = new GoogleTranslate('en'); // Translates into English
+    }
+    return $tr->translate($text);
+}
+
+function transitionsingle($text,$lan)
+{
+    $tr = new GoogleTranslate($lan); // Translates into English
+    return $tr->translate($text);
+}

@@ -19,10 +19,11 @@ class Authenticate extends Middleware
         }else{
 
     if (Auth::user()->role == 'admin') {
-            return redirect()->route('admin');
+            return redirect()->route('home');
         }else{
             return redirect('sdf');
         }
+
 
         }
 
