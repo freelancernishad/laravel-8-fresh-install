@@ -27,10 +27,107 @@ Laravel has the most extensive and thorough [documentation](https://laravel.com/
 
 If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Pakages
-- [filter package docs : ](https://spatie.be/docs/laravel-query-builder/v5/installation-setup).
- composer require spatie/laravel-query-builder "^4" for laravel 8
- php artisan vendor:publish --provider="Spatie\QueryBuilder\QueryBuilderServiceProvider" --tag="config"
+# Pakages
+
+## Mpdf package
+- [Mpdf package docs : ](https://github.com/mccarlosen/laravel-mpdf) <br />
+
+install:
+
+```
+composer require carlos-meneses/laravel-mpdf
+```
+
+To start using Laravel, add the Service Provider and the Facade to your `config/app.php`:
+
+```php
+'providers' => [
+  // ...
+  Meneses\LaravelMpdf\LaravelMpdfServiceProvider::class
+]
+```
+
+```php
+'aliases' => [
+  // ...
+  'PDF' => Meneses\LaravelMpdf\Facades\LaravelMpdf::class
+]
+```
+
+## Laravel-excel package
+- [Laravel-excel package docs : ](https://docs.laravel-excel.com/3.1/getting-started/installation.html) <br />
+
+install:
+
+```
+composer require maatwebsite/excel
+```
+If composer require fails on Laravel 9 because of the simple-cache dependency, you will have to specify the psr/simple-cache version as ^1.0 in your composer.json to satisfy the PhpSpreadsheet dependency. You can install both at the same time as:
+
+```
+composer require psr/simple-cache:^1.0 maatwebsite/excel
+```
+
+
+
+To start using Laravel, add the Service Provider and the Facade to your `config/app.php`:
+
+```
+'providers' => [
+    /*
+     * Package Service Providers...
+     */
+    Maatwebsite\Excel\ExcelServiceProvider::class,
+]
+```
+
+```
+'aliases' => [
+    ...
+    'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+]
+```
+To publish the config, run the vendor publish command:
+
+```
+php artisan vendor:publish --provider="Maatwebsite\Excel\ExcelServiceProvider" --tag=config
+```
+
+
+## simple-qrcode package
+- [simple-qrcode package docs : ](https://github.com/SimpleSoftwareIO/simple-qrcode) <br />
+
+
+install:
+
+```
+composer require simplesoftwareio/simple-qrcode
+
+
+composer require simplesoftwareio/simple-qrcode "~4"
+```
+Example:
+```
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
+
+QrCode::generate('Make me into a QrCode!');
+```
+
+
+## filter package
+- [filter package docs : ](https://github.com/spatie/laravel-query-builder/tree/main) <br />
+
+
+install:
+
+```
+ composer require spatie/laravel-query-builder "^4"
+```
+To publish the config, run the vendor publish command:
+```
+ php artisan vendor:publish --provider="Spatie\QueryBuilder\QueryBuilderServiceProvider" --tag="config" 
+```
+
 
 ## Laravel Sponsors
 
