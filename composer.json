@@ -17,6 +17,7 @@
         "livewire/livewire": "^2.9",
         "maatwebsite/excel": "^3.1",
         "simplesoftwareio/simple-qrcode": "~4",
+        "spatie/laravel-query-builder": "4",
         "stichoza/google-translate-php": "^4.1"
     },
     "require-dev": {
