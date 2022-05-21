@@ -31,12 +31,14 @@
     <link rel="stylesheet" href="{{ asset('dashboard_asset/css/datepicker.min.css') }}">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('dashboard_asset/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link href="https://unpkg.com/cropperjs/dist/cropper.css" rel="stylesheet"/>
     <!-- Modernize js -->
     <script src="{{ asset('dashboard_asset/js/modernizr-3.6.0.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
     <!-- jquery-->
 <script src="{{ asset('dashboard_asset/js/jquery-3.3.1.min.js') }}"></script>
+
 
 
 <script src="https://unpkg.com/cropperjs"></script>
@@ -137,8 +139,8 @@ button.btn-fill-lg.btn-gradient-yellow.btn-hover-bluedark {
                         <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                             aria-expanded="false">
                             <div class="admin-title">
-                                <h5 class="item-title">{{ Auth::user()->name }}</h5>
-                                <span>{{ Auth::user()->role }}</span>
+                                {{-- <h5 class="item-title">{{ Auth::user()->name }}</h5>
+                                <span>{{ Auth::user()->role }}</span> --}}
                             </div>
                             <div class="admin-img">
                                 <img src="{{ asset('dashboard_asset/img/figure/admin.jpg') }}" alt="Admin">
@@ -146,7 +148,7 @@ button.btn-fill-lg.btn-gradient-yellow.btn-hover-bluedark {
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <div class="item-header">
-                                <h6 class="item-title">{{ Auth::user()->name }}</h6>
+                                {{-- <h6 class="item-title">{{ Auth::user()->name }}</h6> --}}
                             </div>
                             <div class="item-content">
                                 <ul class="settings-list">
@@ -190,7 +192,8 @@ button.btn-fill-lg.btn-gradient-yellow.btn-hover-bluedark {
                     <ul class="nav nav-sidebar-menu sidebar-toggle-view">
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link"><i class="flaticon-dashboard"></i><span>Dashboard</span></a>
+                            <router-link to="/dd" class="nav-link"><i class="flaticon-dashboard"></i><span>Dashboard</span></router-link>
+                            <router-link class="nav-link" to="/given-salary"><i class="flaticon-dashboard"></i><span>Add Salary</span></router-link>
                         </li>
 
 
@@ -233,7 +236,7 @@ button.btn-fill-lg.btn-gradient-yellow.btn-hover-bluedark {
 
 
 
-
+                <router-view></router-view>
 
 			@section('container')
 			@show()
@@ -294,6 +297,7 @@ button.btn-fill-lg.btn-gradient-yellow.btn-hover-bluedark {
     <script src="{{ asset('dashboard_asset/js/datepicker.min.js') }}"></script>
 <!-- Custom Js -->
 <script src="{{ asset('dashboard_asset/js/main.js') }}"></script>
+<script src="{{ asset('js/app.js') }}"></script>
 
 
 

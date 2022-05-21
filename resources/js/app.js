@@ -1,32 +1,85 @@
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
 require('./bootstrap');
 
-window.Vue = require('vue').default;
+import Vue from 'vue'
+// import * as Vue from 'vue'
+// import * as Vue from "vue";
+// import pagination from "vuejs-uib-pagination";
 
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
+// Vue.use(pagination);
 
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+import VueRouter from 'vue-router'
+Vue.use(VueRouter)
+
+
+import VueQRCodeComponent from 'vue-qrcode-component'
+Vue.component('qr-code', VueQRCodeComponent)
+
+import VueBarcode from 'vue-barcode';
+Vue.component('barcode', VueBarcode)
+
+import { BModal , BButton  } from 'bootstrap-vue'
+Vue.component('b-modal', BModal)
+Vue.component('b-button', BButton)
+
+
+// Router Imported
+import {routes} from './routes';
+
+// Import helper class
+import User from './helpers/User';
+window.User = User
+
+// import Noty from "noty";
+// new Noty({
+//     text: "Notification text"
+//   }).show();
+// Import Notification class
+import Notification from './helpers/Notification';
+window.Notification = Notification
+
+// import { Bar } from 'vue-chartjs'
+import { Bar } from 'vue-chartjs/legacy'
+import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
+
+ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
+
+Vue.component('Bar', Bar);
+
+
+// import vueselect from 'vue-select2';
+
+// Vue.component('vue-select', vueselect)
+
+
+Vue.component('pagination', require('laravel-vue-semantic-ui-pagination'));
+
+//Swee alert 2 start
+import Swal from 'sweetalert2'
+window.Swal = Swal;
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+});
+window.Toast = Toast;
+//Sweet alert 2 end
+
+window.Reload = new Vue();
+
+const router = new VueRouter({
+  routes,
+  mode: 'history'
+})
 
 const app = new Vue({
-    el: '#app',
+    el: '#wrapper',
+    router
 });
